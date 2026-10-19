@@ -10,9 +10,9 @@ on:
 
 jobs:
   test:
-    name: SauceDemo E2E Tests (Windows)
-    timeout-minutes: 30
-    runs-on: windows-latest
+    name: SauceDemo E2E Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npx playwright test
